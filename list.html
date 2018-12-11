@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link href="./bootstrap4-glyphicons/css/bootstrap-glyphicons.min.css" rel="stylesheet" type="text/css" />
+		<meta charset="utf-8">
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+		<title>Задания</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+		<style type="text/css">
+			.drophover:hover > .dropdown-menu{
+			display: block;
+			margin: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+		  	<a class="navbar-brand" href="#">Меню</a>
+
+		  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#my_navbar">
+		    	<span class="navbar-toggler-icon"></span>
+		  	</button>
+
+		  	<div class="collapse navbar-collapse" id="my_navbar">
+		    	<ul class="navbar-nav mr-auto">
+		      		<li class="nav-item">
+		        		<a class="nav-link" href="index.html"> Главная <span class="sr-only">(current)</span></a>
+		      		</li>
+		      		<li class="nav-item dropdown drophover">
+		        		<a class="nav-link dropdown-toggle" href="list.html" id="navbarDropdown1" data-toggle="dropdown"> Задания</a>
+		        		<div class="dropdown-menu">
+		          			<a class="dropdown-item" href="dog.html">SVG Графика</a>
+		          			<a class="dropdown-item" href="math.html">Формулы</a>
+		          			<a class="dropdown-item" href="./karusel.html">Карусель</a>
+		          			<div class="dropdown-divider"></div>
+
+		          			<!-------Выподающее меню--------->
+		          			<div class="btn-group dropright drophover">
+								<a class="dropdown-toggle dropdown-item" data-toggle="dropdown">
+									Выпадающий список
+								</a>
+								<div class="dropdown-menu">
+									<a class="dropdown-item" href="#">Something</a>
+									<a class="dropdown-item" href="#">good</a>
+								</div>
+							</div>
+
+		        		</div>
+		      		</li>
+		      		<li class="nav-item">
+							<a class="nav-link" href="#" data-toggle="modal" data-target="#myModal">Модальное окно</a>
+					</li>
+		    	</ul>
+		  	</div>
+		</nav>
+		<div class="modal fade" id="myModal">
+			<div class="modal-dialog">
+				<div class="card border-danger">
+					<div class="card-header bg-danger text-white">
+						Ошибка
+					</div>
+					<div class="card-body">
+						<p>Недостаточно прав для просмотра</p>
+						<hr>
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		</header>
+		<section>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-4 col-xl-3">
+						<div id="accordion">
+							
+							<div class="card">
+								<div class="card-header" id="headingOne">
+									<h5 class="mb-0">
+									<button class="btn btn-link" data-toggle="collapse" data-target="#SiteMap" >
+									Карта сайта
+									</button>
+									</h5>
+								</div>
+								<div id="SiteMap" class="collapse show" data-parent="#accordion">
+									<div class="card-body">
+										<a href="index.html">Главная</a>
+										<ul>
+											<li>
+												<a href="./list.html">Задания</a>
+												<ul>
+													<li><a href="dog.html">SVG Графика</a></li>
+		          									<li><a href="math.html">Формулы</a></li>	
+													<li><a href="./karusel.html">Карусель</a></li>
+												    <li><a href="#" data-toggle="modal" data-target="#myModal">Модальное окно</a></li>
+												</ul>
+											</li>
+											
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="card">
+								<div class="card-header" id="headingTwo">
+									<h5 class="mb-0">
+									<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#Contacts">
+									Contacts
+									</button>
+									</h5>
+								</div>
+								<div id="Contacts" class="collapse" data-parent="#accordion">
+									<div class="card-body">
+										<ul>
+											<li><a href="#">Вконтакте</a></li>
+											<li><a href="#">Телеграм</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-8 col-xl-9">
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Название</th>
+									<th scope="col">Ссылка</th>
+									<th scope="col">Иконка</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row">1</th>
+									<td>SVG Графика <span class="badge badge-success">New</span></td>
+									<td><a href="dog.html">dog.html</a></td>
+									<td><span class="glyphicon glyphicon-picture"></span></td>
+								</tr>
+								<tr>
+									<th scope="row">2</th>
+									<td>Математические формулы <span class="badge badge-success">New</span></td>
+									<td><a href="math.html">math.html</a></td>
+									<td><span class="glyphicon glyphicon-usd"></span></td>
+								</tr>
+								<tr>
+									<th scope="row">3</th>
+									<td>Карусель</td>
+									<td><a href="karusel.html">karusel.html</a></td>
+									<td><span class="glyphicon glyphicon-dashboard"></span></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</section>
+	</body>
+</html>
