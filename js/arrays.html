@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+	<title>Массивы</title>
+
+
+
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+		  	<a class="navbar-brand" href="#">Меню</a>
+
+		  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#my_navbar">
+		    	<span class="navbar-toggler-icon"></span>
+		  	</button>
+
+		  	<div class="collapse navbar-collapse" id="my_navbar">
+		    	<ul class="navbar-nav mr-auto">
+		      		<li class="nav-item active">
+		        		<a class="nav-link" href="index.html"> Главная <span class="sr-only">(current)</span></a>
+		      		</li>
+		    	</ul>
+		  	</div>
+		</nav>
+		
+	</header>
+
+	<section>
+		<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-4 col-xl-3">
+						<div id="accordion">
+							<br>
+							<div class="card">
+								<div class="card-header" id="headingOne">
+									<h5 class="mb-0">
+									<button class="btn btn-link" data-toggle="collapse" data-target="#SiteMap">
+									Задания JS
+									</button>
+									</h5>
+								</div>
+								<div id="SiteMap" class="collapse show" data-parent="#accordion">
+									<div class="card-body">
+										<ul>
+										    <li><a href="area.html">Площадь</a></li>
+											<li><a href="e.html">Циклы</a></li>
+											<li><a href="arrays.html">Массивы</a></li>
+											<li><a href="func.html">Функции</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<style type="text/css">
+					.content input{
+						width: 100%;
+					}
+					.content td{
+						-webkit-user-modify: read-write-plaintext-only;
+						min-width: 36px;
+					}
+					</style>
+					<div class="col-md-8 col-xl-9  flex-wrap content">
+						<br>
+					<div style="display: inline-block;">
+					<table class="table-bordered table-striped" id="matrixDoc">
+					<tr><td>68</td><td>78</td><td>17</td><td>68</td><td>33</td><td>3</td><td>49</td><td>57</td></tr>
+					<tr><td>68</td><td>10</td><td>18</td><td>26</td><td>634</td><td>42</td><td>50</td><td>62</td></tr>
+					<tr><td>3</td><td>11</td><td>86</td><td>27</td><td>35</td><td>43</td><td>51</td><td>39</td></tr>
+					<tr><td>24</td><td>12</td><td>20</td><td>28</td><td>36</td><td>44</td><td>52</td><td>60</td></tr>
+					<tr><td>7</td><td>0</td><td>75</td><td>28</td><td>37</td><td>145</td><td>53</td><td>61</td></tr>
+					<tr><td>86</td><td>14</td><td>22</td><td>30</td><td>38</td><td>46</td><td>654</td><td>62</td></tr>
+					<tr><td>76</td><td>54</td><td>23</td><td>31</td><td>39</td><td>47</td><td>55</td><td>63</td></tr>
+					<tr><td>83</td><td>16</td><td>24</td><td>32</td><td>40</td><td>48</td><td>56</td><td>64</td></tr>
+					</table>
+					<hr>
+					<button class="btn btn-dark" id="ordering">Упорядочить</button>
+						
+					</div>
+
+					<script type="text/javascript">
+						var matrixDoc = document.getElementById('matrixDoc')
+						document.getElementById('ordering').addEventListener('click', () => {
+						// Слив значений в матрицу и сортировка
+						var matrix = [[],[],[],[],[],[],[],[]]
+						for(let row = 0; row < 8; row++) {
+							for(let cell = 0; cell < 8; cell++) {
+								matrix[row].push(parseFloat(matrixDoc.rows[row].cells[cell].innerHTML))
+							}
+							matrix[row].sort((a, b) => a - b)
+							console.log(matrix[row])
+						}
+						//Вывод
+						for (let row = 0; row < 8; row++){
+							for (let cell = 0; cell < 8; cell++){
+								matrixDoc.rows[row].cells[cell].innerHTML = matrix[row][cell]
+							}
+						}
+							
+					})
+					</script>
+						
+				</div>
+			</div>	
+	</section>
+</body>
+</html> 

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+	<title>Функции</title>
+
+
+
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+		  	<a class="navbar-brand" href="#">Меню</a>
+
+		  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#my_navbar">
+		    	<span class="navbar-toggler-icon"></span>
+		  	</button>
+
+		  	<div class="collapse navbar-collapse" id="my_navbar">
+		    	<ul class="navbar-nav mr-auto">
+		      		<li class="nav-item active">
+		        		<a class="nav-link" href="index.html"> Главная <span class="sr-only">(current)</span></a>
+		      		</li>
+		    	</ul>
+		  	</div>
+		</nav>
+		
+	</header>
+
+	<section>
+		<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-4 col-xl-3">
+						<div id="accordion">
+							<br>
+							<div class="card">
+								<div class="card-header" id="headingOne">
+									<h5 class="mb-0">
+									<button class="btn btn-link" data-toggle="collapse" data-target="#SiteMap">
+									Задания JS
+									</button>
+									</h5>
+								</div>
+								<div id="SiteMap" class="collapse show" data-parent="#accordion">
+									<div class="card-body">
+										<ul>
+										    <li><a href="area.html">Площадь</a></li>
+											<li><a href="e.html">Циклы</a></li>
+											<li><a href="arrays.html">Массивы</a></li>
+											<li><a href="func.html">Функции</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-8 col-xl-9">
+						<br>
+						<style type="text/css">
+						.content input{
+							width: 100%;
+						}
+						.content td{
+							-webkit-user-modify: read-write-plaintext-only;
+							min-width: 36px;
+						}
+					</style>
+					<div class="col-md-8 col-xl-9 content">
+						<a href="#" onclick="getMatrix(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16)">getMatrix</a>
+						<hr>
+
+						<table class="table-bordered table-striped" id="mTable">
+							<tr><td></td><td></td><td></td><td></td></tr>
+							<tr><td></td><td></td><td></td><td></td></tr>
+							<tr><td></td><td></td><td></td><td></td></tr>
+							<tr><td></td><td></td><td></td><td></td></tr>
+
+						</table>
+					</div>
+					<script type="text/javascript">
+						
+						function getRandomInt (min,max)
+						{
+							return Math.random() * (max - min) + min
+						}
+
+						function getArray(n)
+						{
+							array = []
+							for (let i = 0; i < n; i++)
+								array.push(getRandomInt(0,10))
+							return array
+						}
+
+						function getResultArray(a) 
+						{
+							return a.sort((a, b) => a - b)
+						} 
+
+						function getMatrix()
+						{
+							var len = arguments.length
+							var p = Math.sqrt(len)
+							if (p*p !== len) {
+								console.log('неккоретные входные')
+								return
+							}
+
+							var matrix = []
+							for (let i = 0; i < len; i++) {
+								matrix[((i/p>>0)%2 == 0 ? i : len-i-1)%p*p + i/p>>0] = arguments[i]
+							}
+
+							for (var i = 0; i < len; i++) {
+								mTable.rows[i/p>>0].cells[i%p].innerHTML = matrix[i]
+							}
+						}
+					</script>
+				</div>
+			</div>	
+	</section>
+</body>
+</html> 
