@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+.game {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    background-color: #000;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.game .header {
+    height: 20%;
+    width: 80%;
+    font-size: 10vmin;
+    background-color: #fff;
+    box-sizing: border-box;
+    border-bottom: 1px solid #000;
+}
+.game .field {
+    display: flex;
+    align-items: center;
+    justify-content: center;        
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 160vmin;
+    width: 90vmin;
+    background-color: #fff;
+    color: transparent;
+}
+.game .field .cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 15vmin;
+    width: 15vmin;
+    box-sizing: border-box;
+    margin: 1vmin;
+    border: 2px solid green;
+    border-radius: 2vmin;
+    font-size: 10vmin;
+    background-image: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.game .field .cell[data-ship="2"]{
+    background-image: url();
+}
