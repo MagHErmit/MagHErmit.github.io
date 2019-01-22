@@ -4,6 +4,7 @@ html, body {
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
+	font-family: sans-serif;
 }
 
 .game {
@@ -13,8 +14,7 @@ html, body {
 	align-items: center;
 	height: 100%;
 	width: 100%;
-	background-color: #000;
-	background-image: linear-gradient(white, black);
+	background-image: linear-gradient(pink, blue);
 	background-position: center;
 	background-repeat: no-repeat;
 }
@@ -26,14 +26,15 @@ html, body {
 		height: 12vmin;
 		width: 100%;
 		font-size: 10vmin;
-		box-sizing: border-box;
-		color: #c6e84c;
+		color: blue;
 		flex-grow: 0;
 		justify-content: center;
 	}
 
 	.game .header .restart {
 		margin: 0 20px;
+		background-color: rgba(0, 0, 0, 0);
+		border: none;
 	}
 
 	.game .field {
@@ -54,12 +55,9 @@ html, body {
 			justify-content: center;
 			margin: 1%;
 			box-sizing: border-box;
-			background-color: rgba(255, 255, 255, 0.2);
-			border-radius: 20%;
-			font-size: 10vmin;
-			background-image: none;
+			background-color: rgba(255, 99, 71,  0.2);
+			border-radius: 5%;
 			background-position: center;
-			background-repeat: no-repeat;
 			background-size: cover;
 			color: transparent;
 			transition: background-image 0.2s ease-in-out, height 0.2s, width 0.2s, margin 0.2s;
@@ -79,7 +77,6 @@ html, body {
 			margin: 0;
 			transition: left 0.2s, top 0.2s;
 			z-index: -1;
-			animation-name: hide;
 			animation-duration: 0.2s;
 			animation-iteration-count: 1;
 			animation-fill-mode: forwards;

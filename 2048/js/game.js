@@ -1,6 +1,6 @@
 class Game {
 	constructor(parentElement, size = 4) {
-		this.fieldSize = (window.innerHeight * 0.88 > window.innerWidth ? window.innerWidth : window.innerHeight * 0.88);
+		this.fieldSize = (window.innerHeight * 0.8 > window.innerWidth ? window.innerWidth : window.innerHeight * 0.8);
 
 		this.size = size;
 
@@ -26,7 +26,7 @@ class Game {
 		this.restartElement = createAndAppend({
 			className: 'restart',
 			parentElement: this.headerElement,
-			value: 'Restart'
+			value: 'Перезапуск'
 		}, 'button');
 
 		this.restartElement.addEventListener('click', this.restart.bind(this));
@@ -44,30 +44,25 @@ class Game {
 
 		window.addEventListener('keyup', function(e) {
 			switch (e.keyCode) {
+				case 37:
+					this.moveLeft();
+					break;
 				case 38:
 					this.moveUp();
+					break;	
+				case 39:
+					this.moveRight();
 					break;
 				case 40:
 					this.moveDown();
 					break;
-				case 37:
-					this.moveLeft();
-					break;
-				case 39:
-					this.moveRight();
-					break;
 			}
 		}.bind(this));
-
-		onSwipe('up',    this.moveUp.bind(this));
-		onSwipe('down',  this.moveDown.bind(this));
-		onSwipe('left',  this.moveLeft.bind(this));
-		onSwipe('right', this.moveRight.bind(this));
 	}
 
 	set rating(value) {
 		this._rating = value;
-		this.ratingElement.innerHTML = 'Score: ' + value;
+		this.ratingElement.innerHTML = 'Очки: ' + value;
 	}
 
 	get rating() {
@@ -80,37 +75,26 @@ class Game {
 
 	spawnUnit() {
 		let emptyCells = [];
-		let count = false;
 
 		for (let i = 0; i < this.field.length; i++) {
 			for (let k = 0; k < this.field[i].length; k++) {
 				if (!this.field[i][k].value) {
 					emptyCells.push(this.field[i][k]);
-					if (this.canMove(i, k)){
-						count = 1;
-					}
 				}
 			}
 		}
-
-		if (count === 1) {
-			emptyCells[getRandomInt(0, emptyCells.length - 1)].spawn();
-			count = 0;
-		} else {
-			count = 0;
-			alert('You lose');
-		}
-	}
-	
-	canMove(i, k) {
-		let can = false;
-		if ((this.field[i][k].value == this.field[i + 1][k].value) || (this.field[i][k].value == this.field[i - 1][k].value)
-		|| (this.field[i][k].value == this.field[i][k + 1].value) || (this.field[i][k].value == this.field[i][k - 1].value)
-		|| (this.field[i + 1][k].value == '') || (this.field[i - 1][k].value) || (this.field[i][k + 1].value == '') || (this.field[i][k - 1].value == '')){
-			can = true;
-		}
-	}
+    }
     
+	
+
+	isLastKey(key) {
+		return key == (this.size - 1);
+	}
+
+	isFirstKey(key) {
+		return key == 0;
+	}
+
 	moveRight() {
 		let hasMoved = false;
 		for (let i = 0; i < this.size; i++) {
@@ -122,14 +106,6 @@ class Game {
 		if (hasMoved) {
 			this.spawnUnit();
 		}
-	}
-
-	isLastKey(key) {
-		return key == (this.size - 1);
-	}
-
-	isFirstKey(key) {
-		return key == 0;
 	}
 
 	moveLeft() {
@@ -207,6 +183,8 @@ class Game {
 	restart() {
 		this.fieldElement.innerHTML = '';
 		this.field = [];
+		this.rating = 0;
+		
 
 		for (let i = 0; i < this.size; i++) {
 			this.field[i] = [];
