@@ -16,7 +16,7 @@ html, body {
     width: 100%;
     align-items: center;
     background-color: #000;
-    background-position: center;
+    background-position: left;
     background-repeat: no-repeat;
 }
 .game .header {
